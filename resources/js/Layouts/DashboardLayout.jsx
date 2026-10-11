@@ -17,7 +17,7 @@ const Icon = ({ children }) => (
 
 const round = { strokeLinecap: 'round', strokeLinejoin: 'round' };
 
-// `routeName` links to a real Laravel route; items without one render as "#" placeholders.
+// Each item links to a real Laravel route via `routeName`.
 const navSections = [
     {
         title: 'Overview',
@@ -43,58 +43,6 @@ const navSections = [
                     </Icon>
                 ),
             },
-            {
-                label: 'Inventory',
-                badge: '12',
-                icon: (
-                    <Icon>
-                        <path {...round} d="M3 7l9-4 9 4-9 4-9-4Zm0 5l9 4 9-4M3 17l9 4 9-4" />
-                    </Icon>
-                ),
-            },
-            {
-                label: 'Catalog',
-                icon: (
-                    <Icon>
-                        <path {...round} d="M12 3v18M3 8h18M3 16h18" />
-                    </Icon>
-                ),
-            },
-        ],
-    },
-    {
-        title: 'Operations',
-        items: [
-            {
-                label: 'Analytics',
-                icon: (
-                    <Icon>
-                        <path {...round} d="M4 19V5m0 14h16M8 15l3.5-5 3 3L20 7" />
-                    </Icon>
-                ),
-            },
-            {
-                label: 'Integrations',
-                icon: (
-                    <Icon>
-                        <circle cx="12" cy="12" r="3.2" />
-                        <path
-                            strokeLinecap="round"
-                            d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1m0-12.8l-2.1 2.1M7.7 16.3l-2.1 2.1"
-                        />
-                    </Icon>
-                ),
-            },
-            {
-                // The uploaded dashboard.html was cut off in the middle of this icon's path;
-                // the path below is a completed "person" glyph and the label is assumed.
-                label: 'Team',
-                icon: (
-                    <Icon>
-                        <path {...round} d="M16 20v-2a4 4 0 0 0-8 0v2M12 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
-                    </Icon>
-                ),
-            },
         ],
     },
 ];
@@ -117,11 +65,6 @@ function NavItem({ item }) {
             >
                 {item.icon}
                 {item.label}
-                {item.badge && (
-                    <span className="ml-auto rounded-full bg-black px-2 py-0.5 text-[10px] font-extrabold text-white">
-                        {item.badge}
-                    </span>
-                )}
             </Link>
         </li>
     );
